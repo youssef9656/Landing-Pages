@@ -16,6 +16,5 @@ document.addEventListener('DOMContentLoaded',()=>{
     component_div.load("components/component2.html" , ".div1")
 
 
-
 })
 console.log("sit t9awed")
