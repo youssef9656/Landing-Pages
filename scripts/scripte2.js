@@ -6,4 +6,5 @@ var objectDonne=[
 ]
 function  Chek_image(imag){
 
+
 }
