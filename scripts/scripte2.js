@@ -1,17 +1,6 @@
-// const objectDOnne= {
-//         step1:  {kitchen:""},
-//         step2:  {},
-//         step3:  {},
-//         step4:  {},
-//         step5:  {},
-//         step6:  {},
-//         step7:  {},
-//         step8:  {},
-//         step9:  {},
-//         step10:  {},
-//
-//
-//     }
+const objectDOnne= {
+
+}
 
 function range_with(w){
     let green_range = document.querySelector('.green_range')
@@ -20,10 +9,6 @@ function range_with(w){
     range_circle.textContent = `${w}/9`
 }
 // Call the function with a value, for example, 2
-
-const objectDOnne= {
-
-}
 
 
 function  Chek_image(imag){
@@ -58,6 +43,8 @@ function  Chek_image(imag){
 
         default:
             range_with(1);
+            laoadcomponents(1)
+
             break
 
 
