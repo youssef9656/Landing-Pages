@@ -62,8 +62,15 @@ function laoadcomponents(step){
     $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
 
         console.log(objectDOnne)
+
     });
 }
 
 laoadcomponents(1)
+
+
+function  laoadCompReverse(){
+
+
+}
 
