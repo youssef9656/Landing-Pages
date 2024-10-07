@@ -1,6 +1,5 @@
 /* From Uiverse.io by mrhyddenn */
-.containert {
-    width: 100%;
+.container {
     display: flex;
     align-items: center;
     justify-content: center;

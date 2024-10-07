@@ -46,26 +46,15 @@ body{
     width: 95%;
     height: 120vh;
     margin: auto;
-    /*background-color: #ffffff;*/
+    background-color: #ffffff;
     transition: 1s;
 }
 
 .title{
-    margin-top: 320px;
-    width: 100%;
     color: black;
     font-size: 50px;
     font-weight: 600;
     text-align: center;
-    opacity: 0;
-    transition: 1s;
-    /*margin: 20px;*/
-
-}
-
-#contentDiv{
-    opacity: 0;
-    transition: 0.5s;
 }
 
 .image-div{
