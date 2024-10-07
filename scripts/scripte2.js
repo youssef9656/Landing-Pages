@@ -64,15 +64,7 @@ function  Chek_image(imag){
 function laoadcomponents(step){
     $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
         titleAnimation1()
-
-        // console.log(objectDOnne)
-        // const steps = {
-        //     step1: { step: 'step1', valeur: '1', index: '1' },
-        //     step2: { step: 'step2', valeur: '1', index: '2' }
-        // };
         laoadCompReverse(objectDOnne)
-
-
     });
 }
 
@@ -89,14 +81,12 @@ function  laoadCompReverse(objet){
 
     const index = (objet, step) => {
         for (const [key, value] of Object.entries(objet)) {
-            // console.log(key);
-            // console.log(step);
-            // console.log(value.index);
+
             if (key === step) {
-                return value.index; // Retourne l'index si la clé correspond
+                return value.index;
             }
         }
-        return false; // Retourne -1 si la clé n'est pas trouvée
+        return false;
     };
 
     if (index(objet,step)){
