@@ -12,46 +12,48 @@ function range_with(w){
 
 
 function  Chek_image(imag){
-    var step=imag.dataset.step
-    var valeurChk=imag.dataset
+   setTimeout(()=>{
+       var step=imag.dataset.step
+       var valeurChk=imag.dataset
 
-    delete imag.dataset.step;
-    objectDOnne[step]=valeurChk
+       delete imag.dataset.step;
+       objectDOnne[step]=valeurChk
 
-    switch (step) {
-        case "step1":
-            range_with(2);
-            laoadcomponents(2)
-
-
-            break
-        case "step2":
-            range_with(3);
-            laoadcomponents(3)
-
-            break
-        case "step3":
-            range_with(4);
-            laoadcomponents(4)
-
-            break
-        case "step4":
-            range_with(5)
-            laoadcomponents(5)
-
-            break
-
-        default:
-            range_with(1);
-            laoadcomponents(1)
-
-            break
+       switch (step) {
+           case "step1":
+               range_with(2);
+               laoadcomponents(2)
 
 
+               break
+           case "step2":
+               range_with(3);
+               laoadcomponents(3)
+
+               break
+           case "step3":
+               range_with(4);
+               laoadcomponents(4)
+
+               break
+           case "step4":
+               range_with(5)
+               laoadcomponents(5)
+
+               break
+
+           default:
+               range_with(1);
+               laoadcomponents(1)
+
+               break
 
 
-    }
 
+
+       }
+
+   },300)
 
 
 
@@ -60,17 +62,13 @@ function  Chek_image(imag){
 
 function laoadcomponents(step){
     $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
-
+        titleAnimation1()
         console.log(objectDOnne)
-
     });
 }
 
 laoadcomponents(1)
 
 
-function  laoadCompReverse(){
 
-
-}
 
