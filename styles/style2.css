@@ -1,5 +1,6 @@
 /* From Uiverse.io by mrhyddenn */
-.container {
+.containert {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,18 +27,7 @@ img:hover {
 
 
 
-.coleurChek_image {
+.coleurBlak {
     filter: grayscale(100%)
 }
-
-.iconChek_image{
-    text-align:end ;
-    width: 100%;position: relative;
-    bottom: 290PX;
-    left: 25px;
-    color: darkgreen;
-    display: none;
-}
-
-
 
