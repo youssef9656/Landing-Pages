@@ -12,7 +12,7 @@ body{
     width: 80%;
     height: 200px;
     /*background: forestgreen;*/
-    margin: 60px auto 10px auto;
+    margin: 60px auto 0px auto;
     align-items: center;
     /*justify-content: center;*/
     gap: 0;
@@ -55,7 +55,7 @@ body{
     width: 100%;
     color: black;
     font-size: 50px;
-    font-weight: 600;
+    font-weight: 640;
     text-align: center;
     opacity: 0;
     transition: 1s;
@@ -74,16 +74,24 @@ body{
 }
 
 .check-div{
-    font-size: 30px;
+    display: flex;
+    flex-flow:row  nowrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
     margin: 40px;
 }
 .check-div input{
+
     font-size: 40px;
     width: 30px;
     height: 30px;
 
 }
 
+.check-div label{
+padding-bottom: 8px;
+}
 /* checkbox settings 👇 */
 
 .ui-checkbox {
@@ -109,6 +117,7 @@ body{
 }
 
 .ui-checkbox {
+
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
