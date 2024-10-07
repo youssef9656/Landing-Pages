@@ -63,6 +63,8 @@ function  Chek_image(imag){
 
 function laoadcomponents(step){
     $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
+        titleAnimation1()
+
         // console.log(objectDOnne)
         // const steps = {
         //     step1: { step: 'step1', valeur: '1', index: '1' },
