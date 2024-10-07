@@ -63,12 +63,12 @@ function  Chek_image(imag){
 
 function laoadcomponents(step){
     $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
-        console.log(objectDOnne)
-        const steps = {
-            step1: { step: 'step1', valeur: '1', index: '1' },
-            step2: { step: 'step2', valeur: '1', index: '2' }
-        };
-        laoadCompReverse(steps)
+        // console.log(objectDOnne)
+        // const steps = {
+        //     step1: { step: 'step1', valeur: '1', index: '1' },
+        //     step2: { step: 'step2', valeur: '1', index: '2' }
+        // };
+        laoadCompReverse(objectDOnne)
 
 
     });
@@ -87,9 +87,9 @@ function  laoadCompReverse(objet){
 
     const index = (objet, step) => {
         for (const [key, value] of Object.entries(objet)) {
-            console.log(key);
-            console.log(step);
-            console.log(value.index);
+            // console.log(key);
+            // console.log(step);
+            // console.log(value.index);
             if (key === step) {
                 return value.index; // Retourne l'index si la clé correspond
             }
@@ -102,6 +102,52 @@ function  laoadCompReverse(objet){
         iconChek[index(objet,step)].style.display = "block"
     }
 
+
+
+}
+
+
+
+function  btton_reverse(){
+    var firstElement = document.querySelector('.image-div[data-step]');
+    // Récupère la valeur de data-id du premier élément
+    var  step= firstElement.dataset.step;
+
+    switch (step) {
+        case "step1":
+            range_with(1);
+            laoadcomponents(1)
+
+
+
+
+            break
+        case "step2":
+            range_with(1);
+            laoadcomponents(1)
+
+            break
+        case "step3":
+            range_with(2);
+            laoadcomponents(2)
+
+            break
+        case "step4":
+            range_with(3)
+            laoadcomponents(3)
+
+            break
+
+        default:
+            range_with(1);
+            laoadcomponents(1)
+
+            break
+
+
+
+
+    }
 
 
 
