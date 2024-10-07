@@ -79,7 +79,7 @@ body{
     align-items: center;
     gap: 8px;
     font-size: 20px;
-    margin: 40px;
+    margin: 30px;
 }
 .check-div input{
 
@@ -90,7 +90,7 @@ body{
 }
 
 .check-div label{
-padding-bottom: 8px;
+padding-bottom: 5px;
 }
 /* checkbox settings 👇 */
 
