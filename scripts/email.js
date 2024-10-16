@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Envoi Email</title>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-</head>
-<body>
-<h1>Test d'envoi d'Email</h1>
-<button id="sendEmailBtn">Envoyer l'Email</button>
-
-<script>
-
+const email = () => {
     document.getElementById('sendEmailBtn').addEventListener('click', function() {
         Email.send({
             Host: "smtp.elasticemail.com",
-            Port: 2525,  // Vous pouvez aussi essayer 465 pour SSL
+            Port: 2525,  // You can also try 465 for SSL
             Username: "youssefhamroui03@gmail.com",
             Password: "B434879A728A8D1B8B9A7074C019D2FD3236",
             To: "youssefhamroui03@gmail.com",
             From: "youssefhamroui03@gmail.com",
-            Subject: " hhhhhhhhhhhhhhhhh h hhhhhhhhhhhhhh",
+            Subject: ,
             Body: "Message du corps de l'email."
         }).then(
             response => alert("Email envoyé avec succès : " + response)
@@ -28,6 +15,6 @@
             error => alert("Erreur lors de l'envoi de l'email : " + error)
         );
     });
-</script>
-</body>
-</html>
+};
+
+export default email;

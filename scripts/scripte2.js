@@ -1,3 +1,5 @@
+import email from "./email";
+
 const objectDOnne= {}
 
 // Cette fonction met à jour la largeur de l'élément 'green_range' et affiche la valeur actuelle du step
@@ -184,3 +186,6 @@ function laoadcomponents(step){
 
 // Chargement initial du premier composant
 laoadcomponents(1);
+
+
+
