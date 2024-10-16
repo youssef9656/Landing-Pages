@@ -188,7 +188,7 @@ function laoadcomponents(step){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(1);
+laoadcomponents(4);
 
 
 
