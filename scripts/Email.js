@@ -1,4 +1,4 @@
-const email = () => {
+
     document.getElementById('sendEmailBtn').addEventListener('click', function() {
         Email.send({
             Host: "smtp.elasticemail.com",
@@ -7,7 +7,7 @@ const email = () => {
             Password: "B434879A728A8D1B8B9A7074C019D2FD3236",
             To: "youssefhamroui03@gmail.com",
             From: "youssefhamroui03@gmail.com",
-            Subject: ,
+            Subject: "hfhshj",
             Body: "Message du corps de l'email."
         }).then(
             response => alert("Email envoyé avec succès : " + response)
@@ -15,6 +15,5 @@ const email = () => {
             error => alert("Erreur lors de l'envoi de l'email : " + error)
         );
     });
-};
 
-export default email;
+

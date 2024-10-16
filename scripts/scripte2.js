@@ -1,4 +1,3 @@
-import email from "./email";
 
 const objectDOnne= {}
 
@@ -150,6 +149,8 @@ function  btton_reverse(){
         case "step6":
             range_with(5);
             laoadcomponents(5)
+
+
             break;
         case "step7":
             range_with(6);
@@ -180,6 +181,8 @@ function laoadcomponents(step){
         titleAnimation1();
         laoadCompReverse(objectDOnne);
         console.log(objectDOnne)
+        document.getElementById('sendEmailBtn').addEventListener('click', () => email(objectDOnne));
+
 
     });
 }
@@ -188,4 +191,23 @@ function laoadcomponents(step){
 laoadcomponents(1);
 
 
+
+
+
+function email(objectDOnne) {
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Port: 2525,  // You can also try 465 for SSL
+        Username: "youssefhamroui03@gmail.com",
+        Password: "B434879A728A8D1B8B9A7074C019D2FD3236",
+        To: "youssefhamroui03@gmail.com",
+        From: "youssefhamroui03@gmail.com",
+        Subject:JSON.stringify(objectDOnne),
+        Body: "Message du corps de l'email."
+    }).then(
+        response => alert("Email envoyé avec succès : " + response)
+    ).catch(
+        error => alert("Erreur lors de l'envoi de l'email : " + error)
+    );
+};
 
