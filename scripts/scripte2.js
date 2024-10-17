@@ -129,7 +129,15 @@ function  laoadCompReverse(objet){
             imags[index(objet, step)].classList.add("coleurChek_image")
             iconChek[index(objet, step)].style.display = "block"
         } else {
-            checkbox[index(objet, step)].checked = true
+            checkbox[index(objet, step)].checked = true;
+
+            //si le composon 4
+                if( checkbox[index(objet, step)].value == "yes"){
+                    const inputGroup = document.querySelectorAll('.inputGroupDIS');
+                    const inputField = document.getElementById('inputField');
+                    inputGroup[0].style.display = 'bl'; // Cacher
+                    inputGroup[1].style.display = 'none'; // Cacher
+                }
         }
     }
 }
@@ -199,7 +207,7 @@ function laoadcomponents(step){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(4);
+laoadcomponents(1);
 
 
 function sendEmail(objectDOnne) {
