@@ -7,8 +7,8 @@ function range_with(w){
     let range_circle = document.querySelector('.range_circle')
 
     // Utilisation de la méthode template literals pour définir la largeur
-    green_range.style.width = `calc((100%/9)*${w})`
-    range_circle.textContent = `${w}/9`
+    green_range.style.width = `calc((100%/5)*${w})`
+    range_circle.textContent = `${w}/5`
 }
 
 // Fonction pour vérifier si l'élément est une image et appliquer les changements visuels
@@ -50,8 +50,16 @@ function  Chek_image(elment){
         // Switch pour gérer les différents steps
         switch (step) {
             case "step1":
-                range_with(2);
-                laoadcomponents(2)
+                if(valeur=="Cuisine"){
+                    range_with(2);
+                    laoadcomponents(2)
+                }else if(valeur=="Dressing"){
+                    range_with(2);
+                    laoadcomponents(5)
+                }else if(valeur=="Autres"){
+                    range_with(2);
+                    laoadcomponents(7)
+                }
 
                 break;
             case "step2":
@@ -191,7 +199,7 @@ function laoadcomponents(step){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(1);
+laoadcomponents(4);
 
 
 function sendEmail(objectDOnne) {

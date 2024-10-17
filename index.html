@@ -18,7 +18,7 @@
 
 <div class="range">
     <div class="green_range"></div>
-    <div class="range_circle">1/9</div>
+    <div class="range_circle">1/5</div>
 </div>
 
 
@@ -50,5 +50,52 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <script src="scripts/script1.js"></script>
 <script  src="scripts/scripte2.js" ></script>
+<script>
+    //scripte de compnent  4 Pour le inut de text
+    function toggleInputGroup(radio) {
+        const inputGroup = document.querySelectorAll('.inputGroupDIS');
+
+        // Vérifie si le premier radio est coché pour afficher le champ de texte
+        if (radio.checked ) {
+            inputGroup[0].style.display = 'block'; // Afficher
+            inputGroup[1].style.display = 'block'; // Afficher
+
+        } else {
+            inputGroup[0].style.display = 'none'; // Cacher
+            inputGroup[1].style.display = 'none'; // Cacher
+
+        }
+        let lastChecked = null;
+
+    }
+    let lastChecked = null;
+
+    function toggleRadio(radio) {
+        const inputGroup = document.querySelectorAll('.inputGroupDIS');
+
+        // Si le bouton radio cliqué est déjà sélectionné, on le désélectionne
+        if (radio === lastChecked) {
+            radio.checked = false;
+            lastChecked = null; // Réinitialiser la dernière sélection
+            if( radio.value =="yes"){
+                inputGroup[0].style.display = 'none'; // Cacher
+                inputGroup[1].style.display = 'none'; // Cacher
+            }
+        } else {
+            lastChecked = radio; // Mémoriser le dernier radio coché
+            if( radio.value !== "yes"){
+                inputGroup[0].style.display = 'none'; // Cacher
+                inputGroup[1].style.display = 'none'; // Cacher
+            }
+        }
+    }
+    // Fonction pour mettre à jour l'attribut data-valeur du bouton avec la valeur de l'input
+        function updateDataValeur() {
+            const inputField = document.getElementById('inputField');
+            const button = document.querySelector('#next_setep');
+            button.setAttribute('data-valeur', inputField.value);
+        }
+</script>
+
 </body>
 </html>
