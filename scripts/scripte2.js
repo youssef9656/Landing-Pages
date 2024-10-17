@@ -38,6 +38,8 @@ function  Chek_image(elment){
     // Utilisation de setTimeout pour les actions différées
     setTimeout(()=>{
         var step = elment.dataset.step; // Récupération de l'attribut 'step'
+        var valeur = elment.dataset.valeur; // Récupération de l'attribut 'step'
+
         delete elment.dataset.step; // Suppression de l'attribut 'step'
 
         // Clonage du dataset pour éviter toute modification accidentelle
@@ -50,6 +52,7 @@ function  Chek_image(elment){
             case "step1":
                 range_with(2);
                 laoadcomponents(2)
+
                 break;
             case "step2":
                 range_with(3);
@@ -181,33 +184,37 @@ function laoadcomponents(step){
         titleAnimation1();
         laoadCompReverse(objectDOnne);
         console.log(objectDOnne)
-        document.getElementById('sendEmailBtn').addEventListener('click', () => email(objectDOnne));
+        document.getElementById('sendEmailBtn').addEventListener('click', () => sendEmail(objectDOnne));
 
 
     });
 }
 
 // Chargement initial du premier composant
-laoadcomponents(4);
+laoadcomponents(1);
 
 
+function sendEmail(objectDOnne) {
+    // Récupérer les valeurs du formulaire
+    const objectDonnees = {
+        recipient: "youssefhamroui03@gmail.com",
+        subject: "MON",
+        message:JSON.stringify( objectDOnne)
+    };
 
-
-
-function email(objectDOnne) {
-    Email.send({
-        Host: "smtp.elasticemail.com",
-        Port: 2525,  // You can also try 465 for SSL
-        Username: "youssefhamroui03@gmail.com",
-        Password: "B434879A728A8D1B8B9A7074C019D2FD3236",
-        To: "youssefhamroui03@gmail.com",
-        From: "youssefhamroui03@gmail.com",
-        Subject:JSON.stringify(objectDOnne),
-        Body: "Message du corps de l'email."
-    }).then(
-        response => alert("Email envoyé avec succès : " + response)
-    ).catch(
-        error => alert("Erreur lors de l'envoi de l'email : " + error)
-    );
-};
-
+    $.ajax({
+        url: 'Email/send_email.php', // Utilisez un chemin relatif
+        type: 'POST',
+        data: objectDonnees,
+        beforeSend: function() {
+            // Message pendant l'envoi (facultatif)
+            console.log("Envoi en cours...");
+        },
+        success: function(response) {
+            alert(response); // Utilisation d'une alerte pour afficher la réponse
+        },
+        error: function(xhr, status, error) {
+            alert("Erreur lors de l'envoi de l'email : " + error); // Alerte pour les erreurs
+        }
+    });
+}
