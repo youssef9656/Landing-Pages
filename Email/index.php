@@ -9,7 +9,10 @@
 <body>
 <div class="container">
     <h1 class="mt-5">Envoyer un Email avec Gmail</h1>
-    <form action="send_email.php" method="post">
+    <form action="# Change les permissions pour rendre le script exécutable
+   chmod +x 'C:\Users\tatay\AppData\Local\JetBrains\PhpStorm2024.2\tmp\intellij-git-askpass-local.sh'# Change les permissions pour rendre le script exécutable
+   chmod +x 'C:\Users\tatay\AppData\Local\JetBrains\PhpStorm2024.2\tmp\intellij-git-askpass-local.sh'# Installer git-credential-manager-core
+   git config --global credential.helper manager-core.php" method="post">
         <div class="form-group">
             <label for="recipient">Destinataire</label>
             <input type="email" class="form-control" id="recipient" name="recipient" required>
