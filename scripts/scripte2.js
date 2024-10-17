@@ -135,8 +135,9 @@ function  laoadCompReverse(objet){
                 if( checkbox[index(objet, step)].value == "yes"){
                     const inputGroup = document.querySelectorAll('.inputGroupDIS');
                     const inputField = document.getElementById('inputField');
-                    inputGroup[0].style.display = 'bl'; // Cacher
-                    inputGroup[1].style.display = 'none'; // Cacher
+                    inputGroup[0].style.display = 'block'; // Cacher
+                    inputGroup[1].style.display = 'block'; // Cacher
+                    inputField.value = objet[step]["valueinput"]
                 }
         }
     }

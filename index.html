@@ -79,12 +79,16 @@
             if( radio.value =="yes"){
                 inputGroup[0].style.display = 'none'; // Cacher
                 inputGroup[1].style.display = 'none'; // Cacher
+                document.getElementById('inputField').value=""
+
             }
         } else {
             lastChecked = radio; // Mémoriser le dernier radio coché
             if( radio.value !== "yes"){
                 inputGroup[0].style.display = 'none'; // Cacher
                 inputGroup[1].style.display = 'none'; // Cacher
+                document.getElementById('inputField').value=""
+
             }
         }
     }
@@ -92,7 +96,7 @@
         function updateDataValeur() {
             const inputField = document.getElementById('inputField');
             const button = document.querySelector('#next_setep');
-            button.setAttribute('data-valeur', inputField.value);
+            button.setAttribute('data-valueinput', inputField.value);
         }
 </script>
 
