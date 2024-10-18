@@ -72,7 +72,7 @@ function  Chek_image(elment){
                 break;
             case "step4":
                 range_with(5)
-                laoadcomponents(5)
+                laoadcomponents(11)
                 break;
             case "step5":
                 range_with(6)
@@ -201,7 +201,7 @@ function laoadcomponents(step){
         titleAnimation1();
         laoadCompReverse(objectDOnne);
         console.log(objectDOnne)
-        document.getElementById('sendEmailBtn').addEventListener('click', () => sendEmail(objectDOnne));
+        document.getElementById('sendEmailBtn2').addEventListener('click', (e) => sendEmail(objectDOnne,e));
 
 
     });
@@ -211,12 +211,39 @@ function laoadcomponents(step){
 laoadcomponents(1);
 
 
-function sendEmail(objectDOnne) {
+function sendEmail(objectDOnne,e) {
+    e.preventDefault();
+    // Récupérer les valeurs des champs
+    let nom = document.getElementById('nom').value;
+    let num = document.getElementById('num').value;
+    let ville = document.getElementById('ville').value;
+
+    // Vérification simple
+    if (nom === "" || num === "" || ville === "") {
+        alert("Veuillez remplir tous les champs.");
+        return;
+    }
+
+    // Préparer les données à envoyer
+    let formData = {
+        nom: nom,
+        num: num,
+        ville: ville
+    };
+
+
+    const donne = {...objectDOnne ,formData}
+
+
+
+
+
+
     // Récupérer les valeurs du formulaire
     const objectDonnees = {
         recipient: "youssefhamroui03@gmail.com",
         subject: "MON",
-        message:JSON.stringify( objectDOnne)
+        message:JSON.stringify(donne)
     };
 
     $.ajax({
@@ -225,10 +252,18 @@ function sendEmail(objectDOnne) {
         data: objectDonnees,
         beforeSend: function() {
             // Message pendant l'envoi (facultatif)
-            console.log("Envoi en cours...");
-        },
+            console.log("Envoi en cours...")
+            $("body").load('components/loadPage.html ' , function() {})
+            // window.location.href = 'components/loadPage.html';
+
+
+                },
         success: function(response) {
-            alert(response); // Utilisation d'une alerte pour afficher la réponse
+            // alert(response); // Utilisation d'une alerte pour afficher la réponse
+            // window.location.href = 'components/DonneEnvoiEmail.html';
+            $("body").load('components/DonneEnvoiEmail.html ' , function() {})
+
+
         },
         error: function(xhr, status, error) {
             alert("Erreur lors de l'envoi de l'email : " + error); // Alerte pour les erreurs
