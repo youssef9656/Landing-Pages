@@ -216,16 +216,45 @@ laoadcomponents(1);
 
 function sendEmail(objectDOnne,e) {
     e.preventDefault();
-    // Récupérer les valeurs des champs
     let nom = document.getElementById('nom').value;
     let tel = document.getElementById('tel').value;
     let ville = document.getElementById('ville').value;
 
-    // Vérification simple
-    if (nom === "" || tel === "" || ville === "") {
-        alert("Veuillez remplir tous les champs.");
-        return;
+    // Récupérer les valeurs des champs
+    const Verification = () => {
+
+        let Verification = true;
+
+        if (nom === "") {
+            document.getElementById('nom').style.borderBottom = "2px red solid";
+            Verification = false;
+        }else{
+            document.getElementById('nom').style.borderBottom = "2px solid #656565";
+            Verification = true;
+
+        }
+        if (tel === "") {
+            document.getElementById('tel').style.borderBottom = "2px red solid";
+            Verification = false;
+        }else {
+            document.getElementById('tel').style.borderBottom = "2px solid #656565";
+            Verification = true;
+
+        }
+        if (ville === "") {
+            document.getElementById('ville').style.borderBottom = "2px red solid";
+            Verification = false;
+        }else {
+            document.getElementById('ville').style.borderBottom = "2px solid #656565";
+            Verification = true;
+
+        }
+
+        return Verification;
     }
+
+
+
 
     // Préparer les données à envoyer
     let formData = {
@@ -245,35 +274,39 @@ function sendEmail(objectDOnne,e) {
 
 
 
+    if(Verification()){
+        // Récupérer les valeurs du formulaire
+        const objectDonnees = {
+            recipient: "youssefhamroui03@gmail.com",
+            subject: "MON",
+            message:messagedonne
+        };
 
-    // Récupérer les valeurs du formulaire
-    const objectDonnees = {
-        recipient: "youssefhamroui03@gmail.com",
-        subject: "MON",
-        message:messagedonne
-    };
-
-    $.ajax({
-        url: 'Email/send_email.php', // Utilisez un chemin relatif
-        type: 'POST',
-        data: objectDonnees,
-        beforeSend: function() {
-            // Message pendant l'envoi (facultatif)
-            console.log("Envoi en cours...")
-            $("body").load('components/loadPage.html ' , function() {})
-            // window.location.href = 'components/loadPage.html';
-
-
-                },
-        success: function(response) {
-            // alert(response); // Utilisation d'une alerte pour afficher la réponse
-            // window.location.href = 'components/DonneEnvoiEmail.html';
-            $("body").load('components/DonneEnvoiEmail.html ' , function() {})
+        $.ajax({
+            url: 'Email/send_email.php', // Utilisez un chemin relatif
+            type: 'POST',
+            data: objectDonnees,
+            beforeSend: function() {
+                // Message pendant l'envoi (facultatif)
+                console.log("Envoi en cours...")
+                $("body").load('components/loadPage.html ' , function() {})
+                // window.location.href = 'components/loadPage.html';
 
 
-        },
-        error: function(xhr, status, error) {
-            alert("Erreur lors de l'envoi de l'email : " + error); // Alerte pour les erreurs
-        }
-    });
+            },
+            success: function(response) {
+                // alert(response); // Utilisation d'une alerte pour afficher la réponse
+                // window.location.href = 'components/DonneEnvoiEmail.html';
+                $("body").load('components/DonneEnvoiEmail.html ' , function() {})
+
+
+            },
+            error: function(xhr, status, error) {
+                alert("Erreur lors de l'envoi de l'email : " + error); // Alerte pour les erreurs
+            }
+        });
+
+    }
+
+
 }
