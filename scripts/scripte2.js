@@ -236,7 +236,7 @@ function sendEmail(objectDOnne,e) {
     };
 
 
-    const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${objectDOnne}`;
+    const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${JSON.stringify(objectDOnne)}`;
 
 
     const donne = {...objectDOnne ,formData}
