@@ -211,15 +211,18 @@ function laoadcomponents(step){
 laoadcomponents(1);
 
 
+
+
+
 function sendEmail(objectDOnne,e) {
     e.preventDefault();
     // Récupérer les valeurs des champs
     let nom = document.getElementById('nom').value;
-    let num = document.getElementById('num').value;
+    let tel = document.getElementById('tel').value;
     let ville = document.getElementById('ville').value;
 
     // Vérification simple
-    if (nom === "" || num === "" || ville === "") {
+    if (nom === "" || tel === "" || ville === "") {
         alert("Veuillez remplir tous les champs.");
         return;
     }
@@ -227,9 +230,13 @@ function sendEmail(objectDOnne,e) {
     // Préparer les données à envoyer
     let formData = {
         nom: nom,
-        num: num,
+        tel: tel,
         ville: ville
+
     };
+
+
+    const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${objectDOnne}`;
 
 
     const donne = {...objectDOnne ,formData}
@@ -243,7 +250,7 @@ function sendEmail(objectDOnne,e) {
     const objectDonnees = {
         recipient: "youssefhamroui03@gmail.com",
         subject: "MON",
-        message:JSON.stringify(donne)
+        message:messagedonne
     };
 
     $.ajax({
