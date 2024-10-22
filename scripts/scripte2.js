@@ -57,7 +57,7 @@ function  Chek_image(elment){
                     range_with(2,4);
                     laoadcomponents(5,0)
                 }else if(valeur=="Autres"){
-                    range_with(2,4);
+                    range_with(2,3);
                     laoadcomponents(7,0)
                 }
 
@@ -86,8 +86,8 @@ function  Chek_image(elment){
 
                 break;
             case "step7":
-                range_with(8)
-                laoadcomponents(8,0)
+                range_with(3,3)
+                laoadcomponents(11,10)
                 break;
             case "step8":
                 range_with(9)
@@ -175,8 +175,8 @@ function  btton_reverse(){
             laoadcomponents(5,0)
             break;
         case "step7":
-            range_with(3,4);
-            laoadcomponents(6,0)
+            range_with(1,5);
+            laoadcomponents(1,0)
             break;
         case "step8":
             range_with(4,5);
@@ -187,8 +187,8 @@ function  btton_reverse(){
             laoadcomponents(6,0)
             break;
         case "step10":
-            range_with(9);
-            laoadcomponents(9,0)
+            range_with(2,3);
+            laoadcomponents(7,0)
             break;
         default:
             range_with(1);
@@ -221,7 +221,8 @@ function laoadcomponents(step,vleurde){
 
         });
 
-    }else if(vleurde ==9){
+    }
+    else if(vleurde ==9){
         $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
             console.log(objectDOnne)
             titleAnimation1();
@@ -242,6 +243,28 @@ function laoadcomponents(step,vleurde){
         });
 
     }
+    else if(vleurde ==10){
+        $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
+            console.log(objectDOnne)
+            titleAnimation1();
+
+            const buuttonEnvoi =document.getElementById('sendEmailBtn2')
+            document.querySelector('.bottonPreviousstep').dataset.step = "step10";
+
+            if(buuttonEnvoi){
+                buuttonEnvoi.addEventListener('click', (e) => sendEmail(objectDOnne,e));
+            }else{
+
+                laoadCompReverse(objectDOnne);
+            }
+
+
+
+
+        });
+
+    }
+
 }
 
 // Chargement initial du premier composant
