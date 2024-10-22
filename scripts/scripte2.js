@@ -2,13 +2,13 @@
 const objectDOnne= {}
 
 // Cette fonction met à jour la largeur de l'élément 'green_range' et affiche la valeur actuelle du step
-function range_with(w){
+function range_with(w , r){
     let green_range = document.querySelector('.green_range')
     let range_circle = document.querySelector('.range_circle')
 
     // Utilisation de la méthode template literals pour définir la largeur
-    green_range.style.width = `calc((100%/5)*${w})`
-    range_circle.textContent = `${w}/5`
+    green_range.style.width = `calc((100%/${r})*${w})`
+    range_circle.textContent = `${w}/${r}`
 }
 
 // Fonction pour vérifier si l'élément est une image et appliquer les changements visuels
@@ -51,36 +51,36 @@ function  Chek_image(elment){
         switch (step) {
             case "step1":
                 if(valeur=="Cuisine"){
-                    range_with(2);
+                    range_with(2,5);
                     laoadcomponents(2)
                 }else if(valeur=="Dressing"){
-                    range_with(2);
+                    range_with(2,4);
                     laoadcomponents(5)
                 }else if(valeur=="Autres"){
-                    range_with(2);
+                    range_with(2,4);
                     laoadcomponents(7)
                 }
 
                 break;
             case "step2":
-                range_with(3);
+                range_with(3 ,5);
                 laoadcomponents(3)
                 break;
             case "step3":
-                range_with(4);
+                range_with(4,5);
                 laoadcomponents(4)
                 break;
             case "step4":
-                range_with(5)
+                range_with(5,5)
                 laoadcomponents(11)
                 break;
             case "step5":
-                range_with(6)
+                range_with(3,4)
                 laoadcomponents(6)
                 break;
             case "step6":
-                range_with(7)
-                laoadcomponents(7)
+                range_with(4,4)
+                laoadcomponents(11)
                 break;
             case "step7":
                 range_with(8)
@@ -151,24 +151,25 @@ function  btton_reverse(){
     switch (step) {
         case "step1":
         case "step2":
-            range_with(1);
+            range_with(1,5);
             laoadcomponents(1)
             break;
         case "step3":
-            range_with(2);
+            range_with(2,5);
             laoadcomponents(2)
             break;
         case "step4":
-            range_with(3);
+            range_with(3,5);
             laoadcomponents(3)
             break;
         case "step5":
-            range_with(4);
-            laoadcomponents(4)
+            range_with(2,4)
+            laoadcomponents(1)
             break;
         case "step6":
-            range_with(5);
+            range_with(3,4)
             laoadcomponents(5)
+            break;
 
 
             break;
@@ -202,6 +203,7 @@ function laoadcomponents(step){
         laoadCompReverse(objectDOnne);
         console.log(objectDOnne)
         document.getElementById('sendEmailBtn2').addEventListener('click', (e) => sendEmail(objectDOnne,e));
+
 
 
     });
