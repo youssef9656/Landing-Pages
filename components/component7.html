@@ -4,32 +4,143 @@
 
 
 
-<div class="div3" id="div3">
 
-    <div class="title">Test</div>
+
+<div class="div7" id="div7">
+    <style>
+        /* From Uiverse.io by Maximinodotpy */
+        .inputGroup {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 1em 0 1em 0;
+            max-width: 290px;
+            margin: auto;
+            position: relative;
+        }
+
+        .inputGroup input {
+            font-size: 100%;
+            padding: 0.8em;
+            outline: none;
+            border: 2px solid rgb(200, 200, 200);
+            background-color: transparent;
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        .inputGroup label {
+            font-size: 100%;
+            position: absolute;
+            left: 0;
+            padding: 0.8em;
+            margin-left: 0.5em;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            color: rgb(100, 100, 100);
+        }
+
+        .inputGroup :is(input:focus, input:valid)~label {
+            transform: translateY(-50%) scale(.9);
+            margin: 0em;
+            margin-left: 1.3em;
+            padding: 0.4em;
+            background-color: #e8e8e8;
+        }
+
+        .inputGroup :is(input:focus, input:valid) {
+            border-color: rgb(150, 150, 200);
+        }
+        .envoyer{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /*le buton next */
+        /* From Uiverse.io by alexmaracinaru */
+        .buttonnext {
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #ff6b3d;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: white;
+
+        }
+
+
+        .buttonnext:hover {
+            background: #ff6b3d;
+            color: white;
+
+        }
+
+        .buttonnext > svg {
+            color: white;
+            width: 34px;
+            margin-left: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .buttonnext:hover svg {
+            color: white;
+
+            transform: translateX(5px);
+        }
+
+        .buttonnext:active {
+            transform: scale(0.95);
+        }
+
+
+
+
+        /*////////////////////////////////*/
+
+
+        .inputGroupDIS {
+            display: none; /* Cacher le groupe d'input par défaut */
+            margin-top: 10px;
+        }
+
+    </style>
+    <div class="title">Quel type de meuble souhaitez-vous ? </div>
 
     <div class="d-flex  flex-wrap justify-content-center" id="contentDiv" >
 
         <div class="check-div">
-            <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step3"  data-valeur="Moderne" data-index="0">
-            <label>Moderne</label>
+            <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step7"  data-valeur="Bibliothèque" data-index="0">
+            <label>Bibliothèque</label>
         </div>
         <div class="check-div">
-            <input type="radio"  name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step3"  data-valeur=Classique" data-index="1">
-            <label>Classique</label>
+            <input type="radio"  name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step7"  data-valeur="Meuble TV" data-index="1">
+            <label>Meuble TV</label>
         </div>
         <div class="check-div">
-            <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step3"  data-valeur="Rustique" data-index="2">
-            <label>Rustique</label>
+            <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step7"  data-valeur="Bureau" data-index="2">
+            <label>Bureau</label>
         </div>
         <div class="check-div">
-            <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step3"  data-valeur="Industriel" data-index="3">
-            <label>Industriel</label>
+            <input type="radio" name="y" class="ui-checkbox elmentCherche" data-step="step7" onchange="toggleInputGroup(this)" data-valeur="Industriel" data-index="3">
+            <label>Autre</label>
         </div>
 
+
+    </div>
+    <div class="inputGroup inputGroupDIS" id="inputGroup" style="width:300% !important;">
+        <input type="text" required="" id="inputField" autocomplete="off" oninput="updateDataValeur()">
+        <label>un champ texte pour préciser</label>
     </div>
 
     <div class="PrevioussteDiv">
+        <button  class="btn inputGroupDIS buttonnext" id="next_setep" onclick="Chek_image(this)"  data-step="step7"    data-valeur="0" data-valueinput="" data-index="0" >
+            <span>Next step</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34"><circle stroke-width="3"  stroke="black" r="35.5" cy="37" cx="37"></circle><path fill="black" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path></svg>
+        </button>
         <button onclick="btton_reverse()" class="bottonPreviousstep">
             <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
             <span>Previous step</span>
