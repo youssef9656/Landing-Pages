@@ -52,55 +52,58 @@ function  Chek_image(elment){
             case "step1":
                 if(valeur=="Cuisine"){
                     range_with(2,5);
-                    laoadcomponents(2)
+                    laoadcomponents(2,0)
                 }else if(valeur=="Dressing"){
                     range_with(2,4);
-                    laoadcomponents(5)
+                    laoadcomponents(5,0)
                 }else if(valeur=="Autres"){
                     range_with(2,4);
-                    laoadcomponents(7)
+                    laoadcomponents(7,0)
                 }
 
                 break;
             case "step2":
                 range_with(3 ,5);
-                laoadcomponents(3)
+                laoadcomponents(3,0)
                 break;
             case "step3":
                 range_with(4,5);
-                laoadcomponents(4)
+                laoadcomponents(4,0)
                 break;
             case "step4":
                 range_with(5,5)
-                laoadcomponents(11)
+                laoadcomponents(11,0)
                 break;
+
+
             case "step5":
                 range_with(3,4)
-                laoadcomponents(6)
+                laoadcomponents(6,0)
                 break;
             case "step6":
                 range_with(4,4)
-                laoadcomponents(11)
+                laoadcomponents(11,9)
+
                 break;
             case "step7":
                 range_with(8)
-                laoadcomponents(8)
+                laoadcomponents(8,0)
                 break;
             case "step8":
                 range_with(9)
-                laoadcomponents(9)
+                laoadcomponents(9,0)
                 break;
             case "step9":
                 range_with(10)
-                laoadcomponents(10)
+                laoadcomponents(10,0)
                 break;
             case "step10":
                 range_with(11)
-                laoadcomponents(11)
+                laoadcomponents(11,0)
                 break;
             default:
                 range_with(1);
-                laoadcomponents(1)
+                laoadcomponents(1,0)
                 break;
         }
     }, 300) // Réduction du délai pour accélérer la réponse
@@ -147,70 +150,102 @@ function  laoadCompReverse(objet){
 function  btton_reverse(){
     var firstElement = document.querySelector('.elmentCherche[data-step]');
     var step = firstElement.dataset.step;
+    console.log(step)
 
     switch (step) {
         case "step1":
         case "step2":
             range_with(1,5);
-            laoadcomponents(1)
+            laoadcomponents(1,0)
             break;
         case "step3":
             range_with(2,5);
-            laoadcomponents(2)
+            laoadcomponents(2,0)
             break;
         case "step4":
             range_with(3,5);
-            laoadcomponents(3)
+            laoadcomponents(3,0)
             break;
         case "step5":
-            range_with(2,4)
-            laoadcomponents(1)
+            range_with(1,5)
+            laoadcomponents(1,0)
             break;
         case "step6":
-            range_with(3,4)
-            laoadcomponents(5)
-            break;
-
-
+            range_with(2,4)
+            laoadcomponents(5,0)
             break;
         case "step7":
-            range_with(6);
-            laoadcomponents(6)
+            range_with(3,4);
+            laoadcomponents(6,0)
             break;
         case "step8":
-            range_with(7);
-            laoadcomponents(7)
+            range_with(4,5);
+            laoadcomponents(4,0)
             break;
         case "step9":
-            range_with(8);
-            laoadcomponents(8)
+            range_with(3,4);
+            laoadcomponents(6,0)
             break;
         case "step10":
             range_with(9);
-            laoadcomponents(9)
+            laoadcomponents(9,0)
             break;
         default:
             range_with(1);
-            laoadcomponents(1)
+            laoadcomponents(1,0)
             break;
     }
 }
 
+
+
+
+
 // Fonction pour charger les composants en fonction du step
-function laoadcomponents(step){
-    $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
-        titleAnimation1();
-        laoadCompReverse(objectDOnne);
-        console.log(objectDOnne)
-        document.getElementById('sendEmailBtn2').addEventListener('click', (e) => sendEmail(objectDOnne,e));
+function laoadcomponents(step,vleurde){
+
+    if(vleurde == 0){
+        $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
+            console.log(objectDOnne)
+            titleAnimation1();
+
+            const buuttonEnvoi =document.getElementById('sendEmailBtn2')
+            if(buuttonEnvoi){
+                buuttonEnvoi.addEventListener('click', (e) => sendEmail(objectDOnne,e));
+            }else{
+                laoadCompReverse(objectDOnne);
+            }
 
 
 
-    });
+
+        });
+
+    }else if(vleurde ==9){
+        $(".component_div").load('components/component'+ step + '.html #div'+step, function() {
+            console.log(objectDOnne)
+            titleAnimation1();
+
+            const buuttonEnvoi =document.getElementById('sendEmailBtn2')
+            document.querySelector('.bottonPreviousstep').dataset.step = "step9";
+
+            if(buuttonEnvoi){
+                buuttonEnvoi.addEventListener('click', (e) => sendEmail(objectDOnne,e));
+            }else{
+
+                laoadCompReverse(objectDOnne);
+            }
+
+
+
+
+        });
+
+    }
 }
 
 // Chargement initial du premier composant
-laoadcomponents(1);
+laoadcomponents(1,0);
 
 
 
