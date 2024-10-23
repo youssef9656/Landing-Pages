@@ -1,5 +1,5 @@
 
-const objectDOnne= {}
+let objectDOnne= {}
 
 // Cette fonction met à jour la largeur de l'élément 'green_range' et affiche la valeur actuelle du step
 function range_with(w , r){
@@ -13,7 +13,12 @@ function range_with(w , r){
 
 // Fonction pour vérifier si l'élément est une image et appliquer les changements visuels
 function  Chek_image(elment){
-    console.log(elment.tagName)
+    //pour supprume les donne de object
+    const valeur = elment.dataset.valeur
+
+    if(valeur=="Cuisine" || valeur=="Dressing" || valeur=="Autres" ){
+        objectDOnne = {}
+    }
 
     if(elment.tagName == "DIV"){
         // Sélection de toutes les images et icônes correspondantes
