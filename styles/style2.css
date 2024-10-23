@@ -6,7 +6,7 @@
 }
 
 .card_box {
-    width: 250px;
+    width:250px;
     height: 250px;
     max-width: 256px ;
     max-height: 256px ;
@@ -107,3 +107,114 @@ img:hover {
 }
 
 
+
+@media (max-width: 1300px){
+    .card_box {
+        width:200px;
+        height: 200px;
+        max-width: 206px ;
+        max-height: 206px ;
+        border-radius: 2px;
+        background: linear-gradient(170deg, rgba(58, 56, 56, 0.623) 0%, rgb(31, 31, 31) 100%);
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+        cursor: pointer;
+        transition: all .3s;
+    }
+    .title{
+        margin-top: 320px;
+        width: 100%;
+        color: black;
+        font-size: 30px;
+        font-weight: 640;
+        text-align: center;
+        opacity: 0;
+        transition: 1s;
+        /*margin: 20px;*/
+
+    }
+    .range{
+        display: flex;
+        width: 80%;
+        height: 150px;
+        margin: 30px auto 0px auto;
+        align-items: center;
+        gap: 0;
+    }
+
+
+    .green_range{
+        width: calc((100%/9)*1);
+        background: #008457;
+        height: 20px;
+        border-radius: 10px;
+        transition: 0.6s;
+        box-shadow: 0px 0px 10px 0.01px  #008457;
+
+    }
+
+    .range_circle{
+        margin-left: -20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #008457;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: azure;
+        box-shadow: 0px 0px 10px 0.01px  #008457;
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .iconChek_image{
+        text-align:end ;
+        width: 100%;position: relative;
+        bottom: 250PX;
+        left: 30px;
+        color: darkgreen !important;
+        display: none;
+    }
+
+}
+
+
+
+@media (max-width: 530px){
+    .card_box {
+        width:130px;
+        height: 130px;
+        max-width: 136px ;
+        max-height: 136px ;
+        border-radius: 2px;
+        background: linear-gradient(170deg, rgba(58, 56, 56, 0.623) 0%, rgb(31, 31, 31) 100%);
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    .title{
+        margin-top: 320px;
+        width: 100%;
+        color: black;
+        font-size: 20px;
+        font-weight: 640;
+        text-align: center;
+        opacity: 0;
+        transition: 1s;
+        /*margin: 20px;*/
+
+    }
+
+    .iconChek_image{
+        text-align:end ;
+        width: 100%;position: relative;
+        bottom: 170PX;
+        left: 30px;
+        color: darkgreen !important;
+        display: none;
+    }
+}

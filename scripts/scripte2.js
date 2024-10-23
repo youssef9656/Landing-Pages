@@ -273,7 +273,7 @@ function laoadcomponents(step,vleurde){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(1,0);
+laoadcomponents(11,0);
 
 
 
