@@ -11,7 +11,7 @@
         /* From Uiverse.io by Maximinodotpy */
         .inputGroup {
             font-family: 'Segoe UI', sans-serif;
-            margin: 1em 0 1em 0;
+            /*margin: 1em 0 1em 0;*/
             max-width: 290px;
             margin: auto;
             position: relative;
@@ -104,8 +104,29 @@
 
         .inputGroupDIS {
             display: none; /* Cacher le groupe d'input par défaut */
-            margin-top: 10px;
+            /*margin-top: 10px;*/
         }
+
+
+        .sss{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+
+        }
+        @media (max-width: 600px){
+            .check-div{
+
+            }
+            .sss{
+                flex-direction: column;
+                width: 50%;
+                margin: auto;
+            }
+        }
+
 
     </style>
     <div class="title">Quel type de meuble souhaitez-vous ? </div>
@@ -115,7 +136,7 @@
         </div>
     </div>
 
-    <div class="d-flex  flex-wrap justify-content-center" id="contentDiv" >
+    <div class="sss" id="contentDiv" >
 
         <div class="check-div">
             <input type="radio" name="y" class="ui-checkbox elmentCherche" onchange="Chek_image(this)" data-step="step7"  data-valeur="Bibliothèque" data-index="0">
