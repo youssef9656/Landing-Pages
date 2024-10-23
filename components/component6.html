@@ -6,11 +6,16 @@
 <div class="div6" id="div6">
 
     <div class="title">Préférez-vous un dressing avec des portes</div>
+    <div style="display:flex;justify-content: center;width:100%">
+        <div class="alert alert-danger w-25 alert_deuxme_clik" style="font-size: 12px ;text-align: center ;display: none" role="alert">
+            Vous devez sélectionner un élément pour continuer
+        </div>
+    </div>
     <div class="d-flex  flex-wrap justify-content-center" id="contentDiv">
         <div class=" ">
             <div class="container">
                 <div class="text-center">
-                    <div class="image-div elmentCherche" onclick="Chek_image(this)"  data-step="step6"  data-valeur="coulissantes" data-title="Je souhaite une cuisine : " data-index="0">
+                    <div class="image-div elmentCherche" onclick="Chek_image(this)"  ondblclick="annule_deuxme_clik()" data-step="step6"  data-valeur="coulissantes" data-title="Je souhaite une cuisine : " data-index="0">
                         <div class="image-div-desc">coulissantes</div>
                         <div style="background-image: url('images/Image12.png') ; background-size: cover"  class="card_box imag_card_box" alt="image">
                             <div class="overlay"></div>
@@ -26,7 +31,7 @@
         <div class=" ">
             <div class="container">
                 <div class="text-center">
-                    <div class="image-div elmentCherche" onclick="Chek_image(this)"  data-step="step6"  data-valeur="Battantes" data-title="Je souhaite une cuisine : " data-index="1">
+                    <div class="image-div elmentCherche" onclick="Chek_image(this)" ondblclick="annule_deuxme_clik()"  data-step="step6"  data-valeur="Battantes" data-title="Je souhaite une cuisine : " data-index="1">
                         <div class="image-div-desc">Battantes</div>
                         <div style="background-image: url('images/Image13.jpg') ; background-size: cover"  class="card_box imag_card_box" alt="image">
                             <div class="overlay"></div>
@@ -44,7 +49,7 @@
         <div class=" ">
             <div class="container">
                 <div class="text-center">
-                    <div class="image-div elmentCherche" onclick="Chek_image(this)"  data-step="step6"  data-valeur="Sans portes" data-title="Je souhaite une cuisine : " data-index="2">
+                    <div class="image-div elmentCherche" onclick="Chek_image(this)"  ondblclick="annule_deuxme_clik()" data-step="step6"  data-valeur="Sans portes" data-title="Je souhaite une cuisine : " data-index="2">
                         <div class="image-div-desc">Sans portes</div>
                         <div style="background-image: url('images/Image14.jpg') ; background-size: cover"  class="card_box imag_card_box" alt="image">
                             <div class="overlay"></div>

@@ -13,112 +13,152 @@ function range_with(w , r){
 
 
 
+
 // Fonction pour vérifier si l'élément est une image et appliquer les changements visuels
 
-function  Chek_image(elment){
+let clickTimeout = null; // Variable pour stocker le timeout
+let isDoubleClick = false; // Variable pour suivre l'état du double-clic
 
+function annule_deuxme_clik() {
+    console.log('Double clic détecté, annuler le premier clic.');
+    isDoubleClick = true; // Marque qu'un double-clic a été effectué
+    clearTimeout(clickTimeout); // Annulez le timeout en cours
+    clickTimeout = null; // Réinitialisez le timeout
 
-    //pour supprume les donne de object
-    const valeur = elment.dataset.valeur
-
-    if(valeur=="Cuisine" || valeur=="Dressing" || valeur=="Autres" ){
-        objectDOnne = {}
+    // Afficher l'élément avec la classe '.alert_deuxme_clik'
+    const alertElement = document.querySelector('.alert_deuxme_clik');
+    if (alertElement) {
+        alertElement.style.display = "block"; // Afficher l'alerte lors du double clic
+        isDoubleClick = false ;
     }
-
-    if(elment.tagName == "DIV"){
-        // Sélection de toutes les images et icônes correspondantes
-        const allImages = document.querySelectorAll(".imag_card_box");
-        const allIcons = document.querySelectorAll(".iconChek_image");
-
-        // Suppression de la classe 'coleurChek_image' pour toutes les images
-        allImages.forEach(img => {
-            img.classList.remove("coleurChek_image");
-        });
-
-        // Cacher toutes les icônes
-        allIcons.forEach(icon => {
-            icon.style.display = "none";
-        });
-
-        // Ajout de la classe pour l'image et affichage de l'icône correspondante
-        elment.querySelector(".imag_card_box").classList.add("coleurChek_image")
-        elment.querySelector(".iconChek_image").style.display = "block"
-    }
-
-    // Utilisation de setTimeout pour les actions différées
-    setTimeout(()=>{
-
-        var step = elment.dataset.step; // Récupération de l'attribut 'step'
-        var valeur = elment.dataset.valeur; // Récupération de l'attribut 'step'
-
-        delete elment.dataset.step; // Suppression de l'attribut 'step'
-
-        // Clonage du dataset pour éviter toute modification accidentelle
-        var valeurChk = elment.dataset;
-        var dataClone = { ...valeurChk };
-        objectDOnne[step] = JSON.parse(JSON.stringify(dataClone));
-
-        // Switch pour gérer les différents steps
-        switch (step) {
-            case "step1":
-                if(valeur=="Cuisine"){
-                    range_with(2,5);
-                    laoadcomponents(2,0)
-                }else if(valeur=="Dressing"){
-                    range_with(2,4);
-                    laoadcomponents(5,0)
-                }else if(valeur=="Autres"){
-                    range_with(2,3);
-                    laoadcomponents(7,0)
-                }
-
-                break;
-            case "step2":
-                range_with(3 ,5);
-                laoadcomponents(3,0)
-                break;
-            case "step3":
-                range_with(4,5);
-                laoadcomponents(4,0)
-                break;
-            case "step4":
-                range_with(5,5)
-                laoadcomponents(11,0)
-                break;
-
-
-            case "step5":
-                range_with(3,4)
-                laoadcomponents(6,0)
-                break;
-            case "step6":
-                range_with(4,4)
-                laoadcomponents(11,9)
-
-                break;
-            case "step7":
-                range_with(3,3)
-                laoadcomponents(11,10)
-                break;
-            case "step8":
-                range_with(9)
-                laoadcomponents(9,0)
-                break;
-            case "step9":
-                range_with(10)
-                laoadcomponents(10,0)
-                break;
-            case "step10":
-                range_with(11)
-                laoadcomponents(11,0)
-                break;
-            default:
-                range_with(1,5);
-                laoadcomponents(1,0)
-                break;
-        }
-    }, 300) // Réduction du délai pour accélérer la réponse
 }
+
+function Chek_image(elment) {
+    // Si un double-clic est détecté, annuler le clic simple
+    if (isDoubleClick) {
+        isDoubleClick = false; // Réinitialiser l'état du double-clic
+        return; // Ne pas exécuter la fonction si un double-clic est détecté
+    }
+
+    // Si un timeout est en cours, annuler le clic simple
+    if (clickTimeout) {
+        clearTimeout(clickTimeout); // Efface le timeout en cours
+        clickTimeout = null; // Réinitialiser le timeout
+    }
+
+    // Réglez un délai avant de considérer le clic comme un clic simple
+    clickTimeout = setTimeout(() => {
+        clickTimeout = null; // Réinitialiser le timeout après le clic
+
+        // Pour supprimer les données de l'objet si certaines valeurs sont présentes
+        const valeur = elment.dataset.valeur;
+
+        if (valeur === "Cuisine" || valeur === "Dressing" || valeur === "Autres") {
+            objectDOnne = {}; // Réinitialiser l'objet si les conditions sont remplies
+        }
+
+        if (elment.tagName === "DIV") {
+            // Sélectionner toutes les images et icônes correspondantes
+            const allImages = document.querySelectorAll(".imag_card_box");
+            const allIcons = document.querySelectorAll(".iconChek_image");
+
+            // Suppression de la classe 'coleurChek_image' pour toutes les images
+            allImages.forEach(img => {
+                img.classList.remove("coleurChek_image");
+            });
+
+            // Cacher toutes les icônes
+            allIcons.forEach(icon => {
+                icon.style.display = "none";
+            });
+
+            // Ajouter la classe à l'image cliquée et afficher l'icône correspondante
+            elment.querySelector(".imag_card_box").classList.add("coleurChek_image");
+            elment.querySelector(".iconChek_image").style.display = "block";
+        }
+
+        // Cacher l'alerte si elle est affichée
+        const alertElement = document.querySelector('.alert_deuxme_clik');
+        if (alertElement) {
+            alertElement.style.display = "none"; // Cacher l'alerte lors d'un simple clic
+        }
+
+        // Utilisation de setTimeout pour les actions différées
+        setTimeout(() => {
+            const step = elment.dataset.step; // Récupération de l'attribut 'step'
+            const valeur = elment.dataset.valeur; // Récupération de l'attribut 'valeur'
+
+            delete elment.dataset.step; // Suppression de l'attribut 'step'
+
+            // Clonage des données du dataset
+            const valeurChk = elment.dataset;
+            const dataClone = { ...valeurChk };
+            objectDOnne[step] = JSON.parse(JSON.stringify(dataClone));
+
+            // Gérer les différents steps avec un switch
+            switch (step) {
+                case "step1":
+                    if (valeur === "Cuisine") {
+                        range_with(2, 5);
+                        laoadcomponents(2, 0);
+                    } else if (valeur === "Dressing") {
+                        range_with(2, 4);
+                        laoadcomponents(5, 0);
+                    } else if (valeur === "Autres") {
+                        range_with(2, 3);
+                        laoadcomponents(7, 0);
+                    }
+                    break;
+                case "step2":
+                    range_with(3, 5);
+                    laoadcomponents(3, 0);
+                    break;
+                case "step3":
+                    range_with(4, 5);
+                    laoadcomponents(4, 0);
+                    break;
+                case "step4":
+                    range_with(5, 5);
+                    laoadcomponents(11, 0);
+                    break;
+                case "step5":
+                    range_with(3, 4);
+                    laoadcomponents(6, 0);
+                    break;
+                case "step6":
+                    range_with(4, 4);
+                    laoadcomponents(11, 9);
+                    break;
+                case "step7":
+                    range_with(3, 3);
+                    laoadcomponents(11, 10);
+                    break;
+                case "step8":
+                    range_with(9);
+                    laoadcomponents(9, 0);
+                    break;
+                case "step9":
+                    range_with(10);
+                    laoadcomponents(10, 0);
+                    break;
+                case "step10":
+                    range_with(11);
+                    laoadcomponents(11, 0);
+                    break;
+                default:
+                    range_with(1, 5);
+                    laoadcomponents(1, 0);
+                    break;
+            }
+        }, 100); // Délai pour exécuter les actions après le clic simple
+    }, 200); // Délai de 300 ms pour attendre un double-clic
+}
+
+
+
+
+
+
 
 // Fonction pour inverser le chargement des composants en fonction de l'objet et du step
 function  laoadCompReverse(objet){
