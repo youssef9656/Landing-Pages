@@ -322,14 +322,16 @@ function sendEmail(objectDOnne,e) {
 
 
     // Préparer les données à envoyer
-    let formData = {
-        nom: nom,
-        tel: tel,
-        ville: ville
+    // let formData = {
+    //     nom: nom,
+    //     tel: tel,
+    //     ville: ville
+    //
+    // };
 
-    };
+    //prende les donne de objeget
 
-
+  var  donneChoi ="" ;
     Object.entries(objectDOnne).forEach(([key, value]) => {
         // Condition pour 'Cuisine' dans 'step1'
         if (key === "step1" && value.valeur === "Cuisine") {
@@ -337,41 +339,46 @@ function sendEmail(objectDOnne,e) {
             const step2 = objectDOnne.step2 ? objectDOnne.step2.valeur : '';
             const step3 = objectDOnne.step3 ? objectDOnne.step3.valeur : '';
             const step4 = objectDOnne.step4 ? objectDOnne.step4.valeur : '';
+            if(step4 == "yes"){
+                donneChoi = `CUISINE => step1 : ${step1}, step2: ${step2}, step3: ${step3}, step4: ${step4} => Text : ${objectDOnne.step4.valueinput}`;
 
-            const donneChoi = `CUISINE => step1: ${step1}, step2: ${step2}, step3: ${step3}, step4: ${step4}`;
+            }else{
+                donneChoi = `CUISINE => step1: ${step1}, step2: ${step2}, step3: ${step3}, step4: ${step4}`;
+            }
 
-            return donneChoi
+
         }
 
         // Condition pour 'Dressing' dans 'step1'
-        if (key === "step1" && value.valeur === "Dressing") {
+       else if (key === "step1" && value.valeur === "Dressing") {
+            const step1 = objectDOnne.step1 ? objectDOnne.step1.valeur : '';
             const step5 = objectDOnne.step5 ? objectDOnne.step5.valeur : '';
             const step6 = objectDOnne.step6 ? objectDOnne.step6.valeur : '';
 
-            const donneChoi = `DRESSING => step5: ${step5}, step6: ${step6}`;
-            console.log(donneChoi);
 
-            return donneChoi
+
+           donneChoi = `DRESSING => step1: ${step1}  ,step2: ${step5}, step3: ${step6}`;
+
         }
 
 
         // Condition pour 'Autres' dans 'step1'
-        if (key === "step1" && value.valeur === "Autres") {
+      else  if (key === "step1" && value.valeur === "Autres") {
+            const step1 = objectDOnne.step1 ? objectDOnne.step1.valeur : '';
             const step7 = objectDOnne.step7 ? objectDOnne.step7.valeur : '';
+            if(step7 == "Autre"){
+                donneChoi = `AUTRES => step2: ${step7}  , Text : ${objectDOnne.step7.valueinput}`;
 
-            const donneChoi = `AUTRES => step7: ${step7}`;
-            console.log(donneChoi);
+            }else{
+                donneChoi = `AUTRES =>step1: ${step1} , step2: ${step7}`;
+            }
+
+
         }
     });
 
 
-    const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${JSON.stringify(objectDOnne)}`;
-
-
-
-
-    const donne = {...objectDOnne ,formData}
-
+    const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${donneChoi}`;
 
 
 
