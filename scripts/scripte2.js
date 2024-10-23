@@ -140,7 +140,7 @@ function  laoadCompReverse(objet){
             checkbox[index(objet, step)].checked = true;
 
             //si le composon 4
-                if( checkbox[index(objet, step)].value == "yes"){
+                if( checkbox[index(objet, step)].value == "yes") {
                     const inputGroup = document.querySelectorAll('.inputGroupDIS');
                     const inputField = document.getElementById('inputField');
                     inputGroup[0].style.display = 'block'; // Cacher
@@ -330,7 +330,44 @@ function sendEmail(objectDOnne,e) {
     };
 
 
+    Object.entries(objectDOnne).forEach(([key, value]) => {
+        // Condition pour 'Cuisine' dans 'step1'
+        if (key === "step1" && value.valeur === "Cuisine") {
+            const step1 = objectDOnne.step1 ? objectDOnne.step1.valeur : '';
+            const step2 = objectDOnne.step2 ? objectDOnne.step2.valeur : '';
+            const step3 = objectDOnne.step3 ? objectDOnne.step3.valeur : '';
+            const step4 = objectDOnne.step4 ? objectDOnne.step4.valeur : '';
+
+            const donneChoi = `CUISINE => step1: ${step1}, step2: ${step2}, step3: ${step3}, step4: ${step4}`;
+
+            return donneChoi
+        }
+
+        // Condition pour 'Dressing' dans 'step1'
+        if (key === "step1" && value.valeur === "Dressing") {
+            const step5 = objectDOnne.step5 ? objectDOnne.step5.valeur : '';
+            const step6 = objectDOnne.step6 ? objectDOnne.step6.valeur : '';
+
+            const donneChoi = `DRESSING => step5: ${step5}, step6: ${step6}`;
+            console.log(donneChoi);
+
+            return donneChoi
+        }
+
+
+        // Condition pour 'Autres' dans 'step1'
+        if (key === "step1" && value.valeur === "Autres") {
+            const step7 = objectDOnne.step7 ? objectDOnne.step7.valeur : '';
+
+            const donneChoi = `AUTRES => step7: ${step7}`;
+            console.log(donneChoi);
+        }
+    });
+
+
     const messagedonne =`Nom et Prénom :  ${nom.toUpperCase()} <br><br> Numéro de téléphone : ${tel} <br><br> Ville : ${ville.toUpperCase()} <br><br><br><br> ${JSON.stringify(objectDOnne)}`;
+
+
 
 
     const donne = {...objectDOnne ,formData}
