@@ -11,8 +11,13 @@ function range_with(w , r){
     range_circle.textContent = `${w}/${r}`
 }
 
+
+
 // Fonction pour vérifier si l'élément est une image et appliquer les changements visuels
+
 function  Chek_image(elment){
+
+
     //pour supprume les donne de object
     const valeur = elment.dataset.valeur
 
@@ -42,6 +47,7 @@ function  Chek_image(elment){
 
     // Utilisation de setTimeout pour les actions différées
     setTimeout(()=>{
+
         var step = elment.dataset.step; // Récupération de l'attribut 'step'
         var valeur = elment.dataset.valeur; // Récupération de l'attribut 'step'
 
