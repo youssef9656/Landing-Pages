@@ -107,7 +107,7 @@ function  Chek_image(elment){
                 laoadcomponents(11,0)
                 break;
             default:
-                range_with(1);
+                range_with(1,5);
                 laoadcomponents(1,0)
                 break;
         }
