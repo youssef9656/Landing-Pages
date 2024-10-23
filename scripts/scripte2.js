@@ -196,7 +196,7 @@ function  btton_reverse(){
             laoadcomponents(7,0)
             break;
         default:
-            range_with(1);
+            range_with(1,5);
             laoadcomponents(1,0)
             break;
     }
@@ -273,7 +273,7 @@ function laoadcomponents(step,vleurde){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(11,0);
+laoadcomponents(1,0);
 
 
 
