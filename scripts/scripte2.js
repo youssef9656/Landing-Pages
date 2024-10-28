@@ -432,8 +432,7 @@ function sendEmail(objectDOnne,e) {
     if(Verification()){
         // Récupérer les valeurs du formulaire
         const objectDonnees = {
-            recipient: "youssefhamroui03@gmail.com",
-            subject: "MON",
+            subject: "🚀 Landing Page ",
             message:messagedonne
         };
 

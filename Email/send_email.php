@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 // Récupérer les données du formulaire
-$recipient = $_POST['recipient'];
+$recipient = 'cuisinescie@gmail.com';
 $subject = $_POST['subject'];
 $message = $_POST['message'];
 
@@ -18,13 +18,15 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com'; // Serveur SMTP de Gmail
     $mail->SMTPAuth = true; // Activer l'authentification SMTP
-    $mail->Username = 'youssefhamroui03@gmail.com'; // Remplace par ton adresse Gmail
-    $mail->Password = 'awxn ebqr cajg oxci'; // Ton mot de passe Gmail ou mot de passe d'application
+    $mail->Username = 'cuisinescie@gmail.com'; // Remplace par ton adresse Gmail
+    $mail->Password = 'yonv nonc halu epbb'; // Ton mot de passe Gmail ou mot de passe d'application
     $mail->SMTPSecure = 'tls'; // Activer le chiffrement TLS
     $mail->Port = 587; // Port pour TLS
 
     // Destinataire
-    $mail->setFrom('youssefhamroui03@gmail.com', 'Nom de l\'expéditeur');
+    $mail->CharSet = 'UTF-8';
+
+    $mail->setFrom('cuisinescie@gmail.com',  '🌟 Landing Page 🌟');
     $mail->addAddress($recipient); // Ajoute le destinataire
 
     // Contenu de l'email
