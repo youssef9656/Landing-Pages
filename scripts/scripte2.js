@@ -34,6 +34,7 @@ function annule_deuxme_clik() {
 }
 
 function Chek_image(elment) {
+
     // Si un double-clic est détecté, annuler le clic simple
     if (isDoubleClick) {
         isDoubleClick = false; // Réinitialiser l'état du double-clic
@@ -319,7 +320,7 @@ function laoadcomponents(step,vleurde){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(11,0);
+laoadcomponents(4,0);
 
 
 
@@ -472,4 +473,19 @@ function sendEmail(objectDOnne,e) {
     }
 
 
+}
+
+function handleNextStep(button) {
+    const inputField = document.getElementById('inputField');
+    const alertDiv = document.querySelector('.alert_deuxme_clik');
+
+    if (inputField && inputField.value !== '') {
+        Chek_image(button);
+        alertDiv.style.display = 'none';
+
+    } else {
+        // alert('Vous devez remplir le champ');
+        alertDiv.style.display = 'block';
+
+    }
 }
