@@ -319,7 +319,7 @@ function laoadcomponents(step,vleurde){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(1,0);
+laoadcomponents(11,0);
 
 
 
@@ -333,35 +333,44 @@ function sendEmail(objectDOnne,e) {
 
     // Récupérer les valeurs des champs
     const Verification = () => {
-
+        // Initialiser la variable de vérification à true
         let Verification = true;
 
-        if (nom === "") {
+        // Réinitialiser l'alerte au début
+        const alertDiv = document.querySelector('.alert_deuxme_clik');
+        alertDiv.style.display = 'none'; // Cacher le message par défaut
+
+        // Vérification du champ 'nom'
+        if (nom.trim() === "" || nom.trim().length < 5) {
             document.getElementById('nom').style.borderBottom = "2px red solid";
-            Verification = false;
-        }else{
+
+            Verification = false; // Si l'échec, on garde 'false'
+        } else {
             document.getElementById('nom').style.borderBottom = "2px solid #656565";
-            Verification = true;
-
         }
-        if (tel === "") {
+
+        // Vérification du champ 'tel'
+        if (tel === "" || tel.trim().length < 10) {
             document.getElementById('tel').style.borderBottom = "2px red solid";
-            Verification = false;
-        }else {
+            Verification = false; // Si l'échec, on garde 'false'
+        } else {
             document.getElementById('tel').style.borderBottom = "2px solid #656565";
-            Verification = true;
-
         }
-        if (ville === "") {
+
+        // Vérification du champ 'ville'
+        if (ville.trim() === "") {
             document.getElementById('ville').style.borderBottom = "2px red solid";
-            Verification = false;
-        }else {
+            Verification = false; // Si l'échec, on garde 'false'
+        } else {
             document.getElementById('ville').style.borderBottom = "2px solid #656565";
-            Verification = true;
-
         }
 
-        return Verification;
+        // Afficher le message d'alerte si des validations échouent
+        if (!Verification) {
+            alertDiv.style.display = 'block'; // Afficher l'alerte
+        }
+
+        return Verification; // Retourner l'état final de vérification
     }
 
 
