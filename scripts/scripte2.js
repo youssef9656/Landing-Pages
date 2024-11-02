@@ -34,7 +34,6 @@ function annule_deuxme_clik() {
 }
 
 function Chek_image(elment) {
-
     // Si un double-clic est détecté, annuler le clic simple
     if (isDoubleClick) {
         isDoubleClick = false; // Réinitialiser l'état du double-clic
@@ -320,7 +319,7 @@ function laoadcomponents(step,vleurde){
 }
 
 // Chargement initial du premier composant
-laoadcomponents(4,0);
+laoadcomponents(1,0);
 
 
 
